@@ -27,6 +27,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  List<String> listSatuanSuhu = ["Kelvin", "Reamur", "Fahrenheit"];
+
   double _inputUser = 0;
   double _kelvin = 0;
   double _reamur = 0;
@@ -80,20 +82,12 @@ class _MyHomePageState extends State<MyHomePage> {
             DropdownButton(
                 isExpanded: true,
                 value: 'Fahrenheit',
-                items: [
-                  DropdownMenuItem(
-                    child: Text('Kelvin'),
-                    value: 'Celcius',
-                  ),
-                  DropdownMenuItem(
-                    child: Text('Fahrenheit'),
-                    value: 'Fahrenheit',
-                  ),
-                  DropdownMenuItem(
-                    child: Text('Reamur'),
-                    value: 'Reamur',
-                  ),
-                ],
+                items: listSatuanSuhu.map((String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(value),
+                  );
+                }).toList(),
                 onChanged: (value) {}),
             SizedBox(height: 10),
             Text(

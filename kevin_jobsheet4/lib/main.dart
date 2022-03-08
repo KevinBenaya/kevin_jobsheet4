@@ -34,6 +34,8 @@ class _MyHomePageState extends State<MyHomePage> {
   double _reamur = 0;
   double _fahrenheit = 0;
 
+  double calculationResult = 0;
+
   kelvin() {
     setState(() {
       _inputUser = double.parse(retrive1.text);
@@ -104,7 +106,7 @@ class _MyHomePageState extends State<MyHomePage> {
               style: TextStyle(fontSize: 20),
             ),
             Text(
-              '365',
+              '$calculationResult',
               style: TextStyle(fontSize: 32),
             ),
             SizedBox(height: 10),
@@ -112,7 +114,28 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 Expanded(
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      setState(() {
+                        if (retrive1.text.isNotEmpty) {
+                          calculationResult = double.parse(retrive1.text) * 2;
+                          switch (selectedDropdown) {
+                            case "Kelvin":
+                              calculationResult =
+                                  double.parse(retrive1.text) + 273;
+                              break;
+                            case "Reamur":
+                              calculationResult =
+                                  double.parse(retrive1.text) * (4 / 5);
+                              break;
+                            case "Fahrenheit":
+                              calculationResult =
+                                  (double.parse(retrive1.text) * ((9 / 5)) +
+                                      32);
+                              break;
+                          }
+                        }
+                      });
+                    },
                     child: Text('Konversi Suhu'),
                   ),
                 ),

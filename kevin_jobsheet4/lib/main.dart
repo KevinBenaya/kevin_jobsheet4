@@ -65,9 +65,10 @@ class _MyHomePageState extends State<MyHomePage> {
         margin: EdgeInsets.all(8),
         child: Column(
           children: [
-            TextFormField(
+            TextField(
               controller: retrive1,
               decoration: InputDecoration(
+                labelText: 'Celcius',
                 hintText: 'Masukkan Suhu Dalam Celcius',
               ),
               keyboardType: TextInputType.number,
@@ -75,94 +76,16 @@ class _MyHomePageState extends State<MyHomePage> {
                 FilteringTextInputFormatter.digitsOnly
               ],
             ),
-            Container(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(top: 200),
-                    child: Text(
-                      'Suhu dalam Kelvin',
-                    ),
-                  ),
-                  SizedBox(
-                    width: 100,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(top: 200),
-                    child: Text(
-                      'Suhu dalam Reamur',
-                    ),
-                  ),
-                  SizedBox(
-                    width: 100,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(top: 200),
-                    child: Text(
-                      'Suhu dalam Fahrenheit',
-                    ),
-                  ),
-                ],
+            /*DropdownButton(items: [
+              DropdownMenuItem(
+                child: Text('Celcius'),
+                value: 'Celcius',
               ),
-            ),
-            Container(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(top: 10),
-                    child: Text(
-                      '$_kelvin',
-                      style: TextStyle(fontSize: 30),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 210,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(top: 10),
-                    child: Text(
-                      '$_reamur',
-                      style: TextStyle(fontSize: 30),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 210,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(top: 10),
-                    child: Text(
-                      '$_fahrenheit',
-                      style: TextStyle(fontSize: 30),
-                    ),
-                  ),
-                ],
+              DropdownMenuItem(
+                child: Text('Fahrenheit'),
+                value: 'Fahrenheit',
               ),
-            ),
-            SizedBox(
-              height: 150,
-            ),
-            Container(
-              width: 700,
-              padding: EdgeInsets.only(top: 16),
-              child: ElevatedButton(
-                onPressed: () {
-                  kelvin();
-                  reamur();
-                  fahrenheit();
-                  retrive1.clear;
-                },
-                child: Text(
-                  "Konversi Suhu",
-                  style: TextStyle(
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-            ),
+            ], onChanged: (value) {}),*/
           ],
         ),
       ),

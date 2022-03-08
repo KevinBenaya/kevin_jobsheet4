@@ -95,6 +95,31 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ],
                 onChanged: (value) {}),
+            SizedBox(height: 10),
+            Text(
+              'Hasil',
+              style: TextStyle(fontSize: 20),
+            ),
+            Text(
+              '365',
+              style: TextStyle(fontSize: 32),
+            ),
+            SizedBox(height: 10),
+            Row(
+              children: [
+                Expanded(
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    child: Text('Konversi Suhu'),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 10),
+            Text(
+              'Riwayat Konversi',
+              style: TextStyle(fontSize: 20),
+            ),
           ],
         ),
       ),

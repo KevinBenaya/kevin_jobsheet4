@@ -28,7 +28,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   List<String> listSatuanSuhu = ["Kelvin", "Reamur", "Fahrenheit"];
-
+  String selectedDropdown = "Kelvin";
   double _inputUser = 0;
   double _kelvin = 0;
   double _reamur = 0;
@@ -52,6 +52,12 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       _inputUser = double.parse(retrive1.text);
       _fahrenheit = ((9 / 5) * _inputUser) + 32;
+    });
+  }
+
+  void onDropDownChanged(Object? value) {
+    return setState(() {
+      selectedDropdown = value.toString();
     });
   }
 
@@ -80,15 +86,18 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             SizedBox(height: 8),
             DropdownButton(
-                isExpanded: true,
-                value: 'Fahrenheit',
-                items: listSatuanSuhu.map((String value) {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(value),
-                  );
-                }).toList(),
-                onChanged: (value) {}),
+              isExpanded: true,
+              value: selectedDropdown,
+              items: listSatuanSuhu.map((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(value),
+                );
+              }).toList(),
+              onChanged: (value) {
+                onDropDownChanged(value);
+              },
+            ),
             SizedBox(height: 10),
             Text(
               'Hasil',

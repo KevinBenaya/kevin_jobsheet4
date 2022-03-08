@@ -76,7 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 FilteringTextInputFormatter.digitsOnly
               ],
             ),
-            /*DropdownButton(items: [
+            DropdownButton(items: [
               DropdownMenuItem(
                 child: Text('Celcius'),
                 value: 'Celcius',
@@ -85,7 +85,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Text('Fahrenheit'),
                 value: 'Fahrenheit',
               ),
-            ], onChanged: (value) {}),*/
+              DropdownMenuItem(
+                child: Text('Reamur'),
+                value: 'Reamur',
+              ),
+            ], onChanged: (value) {}),
           ],
         ),
       ),

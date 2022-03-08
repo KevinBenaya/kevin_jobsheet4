@@ -76,20 +76,25 @@ class _MyHomePageState extends State<MyHomePage> {
                 FilteringTextInputFormatter.digitsOnly
               ],
             ),
-            DropdownButton(items: [
-              DropdownMenuItem(
-                child: Text('Celcius'),
-                value: 'Celcius',
-              ),
-              DropdownMenuItem(
-                child: Text('Fahrenheit'),
+            SizedBox(height: 8),
+            DropdownButton(
+                isExpanded: true,
                 value: 'Fahrenheit',
-              ),
-              DropdownMenuItem(
-                child: Text('Reamur'),
-                value: 'Reamur',
-              ),
-            ], onChanged: (value) {}),
+                items: [
+                  DropdownMenuItem(
+                    child: Text('Kelvin'),
+                    value: 'Celcius',
+                  ),
+                  DropdownMenuItem(
+                    child: Text('Fahrenheit'),
+                    value: 'Fahrenheit',
+                  ),
+                  DropdownMenuItem(
+                    child: Text('Reamur'),
+                    value: 'Reamur',
+                  ),
+                ],
+                onChanged: (value) {}),
           ],
         ),
       ),

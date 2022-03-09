@@ -1,7 +1,11 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
+import 'widgets/calculationHistory.dart';
+import 'widgets/calculationTarget.dart';
+import 'widgets/inputSuhu.dart';
+import 'widgets/lastCalculation.dart';
+import 'widgets/temperatureConvertion.dart';
 
 void main() {
   runApp(MyApp());
@@ -105,122 +109,5 @@ class _MyHomePageState extends State<MyHomePage> {
             calculationResult.toString());
       }
     });
-  }
-}
-
-class temperaturConvertion extends StatelessWidget {
-  const temperaturConvertion({
-    Key? key,
-    required this.onPressed,
-  }) : super(key: key);
-
-  final Function onPressed;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(
-          child: ElevatedButton(
-            onPressed: () {
-              onPressed();
-            },
-            child: Text('Konversi Suhu'),
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class calculationTarget extends StatelessWidget {
-  const calculationTarget({
-    Key? key,
-    required this.selectedDropdown,
-    required this.listSatuanSuhu,
-    required this.onDropdownChanged,
-  }) : super(key: key);
-
-  final String selectedDropdown;
-  final List<String> listSatuanSuhu;
-  final Function onDropdownChanged;
-
-  @override
-  Widget build(BuildContext context) {
-    return DropdownButton(
-      isExpanded: true,
-      value: selectedDropdown,
-      items: listSatuanSuhu.map((String value) {
-        return DropdownMenuItem<String>(
-          value: value,
-          child: Text(value),
-        );
-      }).toList(),
-      onChanged: (value) {
-        onDropdownChanged(value);
-      },
-    );
-  }
-}
-
-class calculationHistory extends StatelessWidget {
-  const calculationHistory({
-    Key? key,
-    required this.listHasil,
-  }) : super(key: key);
-
-  final List<String> listHasil;
-
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView.builder(
-        itemCount: listHasil.length,
-        itemBuilder: (context, index) {
-          return Text(listHasil[index]);
-        },
-      ),
-    );
-  }
-}
-
-class lastCalculation extends StatelessWidget {
-  const lastCalculation({
-    Key? key,
-    required this.calculationResult,
-  }) : super(key: key);
-
-  final double calculationResult;
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      '$calculationResult',
-      style: TextStyle(fontSize: 32),
-    );
-  }
-}
-
-class inputSuhu extends StatelessWidget {
-  const inputSuhu({
-    Key? key,
-    required this.retrive1,
-  }) : super(key: key);
-
-  final TextEditingController retrive1;
-
-  @override
-  Widget build(BuildContext context) {
-    return TextField(
-      controller: retrive1,
-      decoration: InputDecoration(
-        labelText: 'Celcius',
-        hintText: 'Masukkan Suhu Dalam Celcius',
-      ),
-      keyboardType: TextInputType.number,
-      inputFormatters: <TextInputFormatter>[
-        FilteringTextInputFormatter.digitsOnly
-      ],
-    );
   }
 }

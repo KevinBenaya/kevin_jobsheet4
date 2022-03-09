@@ -60,6 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
               selectedDropdown: selectedDropdown,
               listSatuanSuhu: listSatuanSuhu,
               onDropdownChanged: onDropDownChanged,
+              konversi: konversiSuhu,
             ),
             SizedBox(height: 10),
             Text(

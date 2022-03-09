@@ -6,11 +6,13 @@ class calculationTarget extends StatelessWidget {
     required this.selectedDropdown,
     required this.listSatuanSuhu,
     required this.onDropdownChanged,
+    required this.konversi,
   }) : super(key: key);
 
   final String selectedDropdown;
   final List<String> listSatuanSuhu;
   final Function onDropdownChanged;
+  final Function konversi;
 
   @override
   Widget build(BuildContext context) {

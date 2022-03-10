@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class inputSuhu extends StatelessWidget {
   const inputSuhu({
@@ -12,11 +13,14 @@ class inputSuhu extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       controller: retrive1,
-      keyboardType: TextInputType.number,
       decoration: InputDecoration(
         labelText: 'Celcius',
         hintText: 'Masukkan Suhu Dalam Celcius',
       ),
+      keyboardType: TextInputType.number,
+      inputFormatters: <TextInputFormatter>[
+        FilteringTextInputFormatter.digitsOnly
+      ],
     );
   }
 }

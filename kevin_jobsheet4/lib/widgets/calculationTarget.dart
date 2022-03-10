@@ -27,6 +27,7 @@ class calculationTarget extends StatelessWidget {
       }).toList(),
       onChanged: (value) {
         onDropdownChanged(value);
+        konversi();
       },
     );
   }
